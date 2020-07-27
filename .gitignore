@@ -36,6 +36,7 @@ edugame.apk
 node_modules/
 npm-debug.log
 yarn-error.log
+web-build/
 
 # BUCK
 buck-out/
