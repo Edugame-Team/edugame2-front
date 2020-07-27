@@ -47,7 +47,7 @@ Test are not working yet. Althougth, it will be available soon for the milestone
 $ yarn test
 ```
 
-## Les issues
+j# Les issues
 
 Le système d'issues de github n'est pas le plus complet mais il permet d'avoir tout de même un bon suivi.
 
@@ -132,9 +132,9 @@ Créer un environment        |    ⨯    |   ✔    |   ✔   |
 
 ## Auteurs
 
-* **Fahim BENCHAABANE** - <fahim.benchaabane@epitech.eu> - [fahimbench](https://github.com/PurpleBooth)
-* **Arnaud Heymans** - <arnaud.heymans@epitech.eu> - [Barhal](https://github.com/PurpleBooth)
-* **Thomas Lopez** - <thomas.lopez@epitech.eu> - [LT-code](https://github.com/PurpleBooth)
+* **Fahim BENCHAABANE** - <fahim.benchaabane@epitech.eu> - [fahimbench](https://github.com/fahimbench)
+* **Arnaud Heymans** - <arnaud.heymans@epitech.eu> - [Barhal](https://github.com/Barhal)
+* **Thomas Lopez** - <thomas.lopez@epitech.eu> - [LT-code](https://github.com/LT-code)
 
 ## Licence
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
