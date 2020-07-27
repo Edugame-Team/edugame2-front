@@ -39,6 +39,14 @@ Frontend du projet Edugame2
  - **yarn install** afin d'installer les dépendances nécessaires du projet.
  - **yarn web** pour lancer l'application sur une vue web.
 
+## Running the tests
+
+Test are not working yet. Althougth, it will be available soon for the milestone 1.
+
+```bash
+$ yarn test
+```
+
 ## Les issues
 
 Le système d'issues de github n'est pas le plus complet mais il permet d'avoir tout de même un bon suivi.
@@ -124,9 +132,9 @@ Créer un environment        |    ⨯    |   ✔    |   ✔   |
 
 ## Auteurs
 
-- Fahim Benchaabane <fahim.benchaabane@epitech.eu>
-- Arnaud Heymans <arnaud.heymans@epitech.eu>
-- Thomas Lopez <thomas.lopez@epitech.eu>
+* **Fahim BENCHAABANE** - <fahim.benchaabane@epitech.eu> - [fahimbench](https://github.com/PurpleBooth)
+* **Arnaud Heymans** - <arnaud.heymans@epitech.eu> - [Barhal](https://github.com/PurpleBooth)
+* **Thomas Lopez** - <thomas.lopez@epitech.eu> - [LT-code](https://github.com/PurpleBooth)
 
 ## Licence
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
