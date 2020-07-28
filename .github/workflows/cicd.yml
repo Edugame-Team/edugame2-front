@@ -29,7 +29,7 @@ jobs:
             yarn install
             yarn web:generate
             docker-compose -p edugame_front_dev up -d --build
-            docker network connect nginx_default edugame_front_dev_web_1
+            docker network connect nginx_default edugame_front_dev_web_1 || true
       - name: executing remote script -> Prod
         if: github.ref == 'refs/heads/master'
         uses: appleboy/ssh-action@master
@@ -47,4 +47,4 @@ jobs:
             yarn install
             yarn web:generate
             docker-compose -p edugame_front_main up -d --build
-            docker network connect nginx_default edugame_front_main_web_1
+            docker network connect nginx_default edugame_front_main_web_1 || true
