@@ -1,36 +1,32 @@
-import * as React from "react";
-import { Button } from "react-native-elements";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import * as React from 'react';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-import Strings from "../../contants/Strings/";
+import Strings from '../../contants/Strings';
 
 /* <Button
-      style={props.style}
-      title={Strings.screens[props.screen].button[props.title]}
-      onPress={() => props.onPress()}
+      style={style}
+      title={Strings.screens[screen].button[title]}
+      onPress={() => onPress()}
     />
     */
 
-export default props => {
+export default ({
+  textStyle, style, screen, title, onPress,
+}) => {
   const styles = StyleSheet.create({
     button: {
-      width: "100%",
+      width: '100%',
       borderRadius: 25,
       height: 50,
-      alignItems: "center",
-      justifyContent: "center"
+      alignItems: 'center',
+      justifyContent: 'center',
     },
-    text: props.textStyle
+    text: textStyle,
   });
 
   return (
-    <TouchableOpacity
-      onPress={() => props.onPress()}
-      style={[styles.button, props.style]}
-    >
-      <Text style={styles.text}>
-        {Strings.screens[props.screen].button[props.title]}
-      </Text>
+    <TouchableOpacity onPress={() => onPress()} style={[styles.button, style]}>
+      <Text style={styles.text}>{Strings.screens[screen].button[title]}</Text>
     </TouchableOpacity>
   );
 };

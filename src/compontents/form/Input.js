@@ -1,42 +1,55 @@
-import * as React from "react";
-import { Icon } from "react-native-elements";
-import { View, StyleSheet, Text, TouchableOpacity, TextInput } from "react-native";
+import * as React from 'react';
+import {
+  View,
+  StyleSheet,
+  TextInput,
+} from 'react-native';
 
-import Strings from "../../contants/Strings/";
+import Strings from '../../contants/Strings';
 
 const styles = StyleSheet.create({
   input: {
-    width: "100%",
+    width: '100%',
     borderRadius: 25,
     height: 50,
     marginBottom: 20,
-    justifyContent: "center",
-    padding: 20
+    justifyContent: 'center',
+    padding: 20,
   },
-  inputText:{
-    height:50,
-  }
+  inputText: {
+    height: 50,
+  },
 });
 
-export default props => {
+export default ({
+  style,
+  value,
+  onChangeText,
+  screen,
+  placeholder,
+  placeholderTextColor,
+  errorColor,
+  errorMessage,
+  secureTextEntry,
+}) => {
   const input = React.createRef();
-  //console.log(input);
+  // console.log(input);
   //
-  //if(props.focus)
+  // if(props.focus)
   //  input.focus();
 
   return (
-    <View style={[styles.input, props.style]}>
+    <View style={[styles.input, style]}>
       <TextInput
         style={styles.inputText}
-        value={props.value}
-        onChangeText={props.onChangeText}
+        value={value}
+        onChangeText={onChangeText}
         ref={input}
-        placeholder={Strings.screens[props.screen].input[props.placeholder]}
-        placeholderTextColor={props.placeholderTextColor}
-        errorStyle={{ color: props.errorColor ? props.errorColor : "red" }}
-        errorMessage={Strings.screens[props.screen].input[props.errorMessage]}
-        secureTextEntry={props.secureTextEntry}
+        placeholder={Strings.screens[screen].input[placeholder]}
+        placeholderTextColor={placeholderTextColor}
+        errorStyle={{ color: errorColor !== undefined ? errorColor : 'red' }}
+        errorMessage={Strings.screens[screen].input[errorMessage]}
+        secureTextEntry={secureTextEntry}
       />
     </View>
   );

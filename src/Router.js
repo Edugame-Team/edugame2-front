@@ -1,32 +1,32 @@
-import React, { useState, useContext } from "react";
-import AppContext from "./compontents/AppContext";
+import React, { useContext } from 'react';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Icon, Badge } from 'react-native-elements';
 
-import "react-native-gesture-handler";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
-import { Icon, Badge, Header } from "react-native-elements";
-import { DrawerActions } from "@react-navigation/native";
+import 'react-native-gesture-handler';
+import { NavigationContainer, DrawerActions } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import Menu from "./screens/Menu";
-import Login from "./screens/auth/Login/";
-import ChooseType from "./screens/auth/ChooseType";
+import Menu from './screens/Menu';
+import Login from './screens/auth/Login';
+import ChooseType from './screens/auth/ChooseType';
 
-import Strings from "./contants/Strings";
+import Strings from './contants/Strings';
+
+import AppContext from './compontents/AppContext';
 
 const Stack = createStackNavigator();
 
-const linking = {};
+// const linking = {};
 
 export default function App() {
   const myContext = useContext(AppContext);
-  
+
   // linking={linking}
   return (
-    <NavigationContainer  fallback={<Text>Loading...</Text>}>
+    <NavigationContainer fallback={<Text>Loading...</Text>}>
       <Stack.Navigator
         screenOptions={{
-          gestureEnabled: true
+          gestureEnabled: true,
         }}
         initialRouteName={
           myContext.user.logged
@@ -36,13 +36,11 @@ export default function App() {
       >
         {myContext.user.logged && (
           <Stack.Screen
-            options={({ navigation, route }) => ({
-              headerTitle: props => <Text {...props} />,
+            options={({ navigation }) => ({
+              headerTitle: (props) => <Text {...props} />,
               headerRight: () => (
                 <TouchableOpacity
-                  onPress={() =>
-                    navigation.dispatch(DrawerActions.toggleDrawer())
-                  }
+                  onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
                 >
                   <Icon
                     style={styles.headerIcon}
@@ -54,14 +52,14 @@ export default function App() {
                     style={styles.iconBadge}
                     status="error"
                     containerStyle={{
-                      position: "absolute",
+                      position: 'absolute',
                       top: -4,
-                      right: 7
+                      right: 7,
                     }}
                     value={1}
                   />
                 </TouchableOpacity>
-              )
+              ),
             })}
             name={Strings.navigation.menu.title}
             component={Menu}
@@ -83,9 +81,9 @@ const styles = StyleSheet.create({
   headerIcon: {
     marginRight: 15,
     marginLeft: 10,
-    textAlign: "center"
+    textAlign: 'center',
   },
   spaceView: {
-    width: 5
-  }
+    width: 5,
+  },
 });
