@@ -6,6 +6,8 @@
     "web": "expo start --web",
     "start": "react-native start",
     "test": "jest",
+    "lint": "eslint ./src --fix",
+    "prettier": "prettier ./src",
     "web:generate": "expo build:web"
   },
   "dependencies": {
@@ -30,11 +32,26 @@
   "devDependencies": {
     "@babel/core": "~7.9.0",
     "babel-jest": "~25.2.6",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "eslint-plugin-react-native": "^3.9.0",
+    "husky": "^4.2.5",
     "jest": "~25.2.6",
+    "prettier": "^2.0.5",
+    "prettier-eslint": "^11.0.0",
     "react-test-renderer": "~16.9.0"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier &> /dev/null; yarn lint"
+    }
   },
   "private": true
 }
