@@ -40,9 +40,7 @@ export default function App() {
               headerTitle: (props) => <Text {...props} />,
               headerRight: () => (
                 <TouchableOpacity
-                  onPress={() =>
-                    navigation.dispatch(DrawerActions.toggleDrawer())
-                  }
+                  onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
                 >
                   <Icon
                     style={styles.headerIcon}

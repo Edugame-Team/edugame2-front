@@ -24,13 +24,11 @@ const CustomDrawerContent = (props) => {
         icon={({ color, size }) => (
           <Icon name="exit-to-app" color={color} size={size} />
         )}
-        onPress={() =>
-          Alert(
-            Strings.alert.disconnect.title,
-            Strings.alert.disconnect.question,
-            popupPressed,
-          )
-        }
+        onPress={() => Alert(
+          Strings.alert.disconnect.title,
+          Strings.alert.disconnect.question,
+          popupPressed,
+        )}
       />
     </DrawerContentScrollView>
   );

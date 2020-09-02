@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import {
+  View, StyleSheet, Text, TouchableOpacity,
+} from 'react-native';
 
 const Type = ({ user, navigation }) => (
   <View style={styles.itemContainer}>

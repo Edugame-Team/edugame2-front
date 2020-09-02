@@ -10,11 +10,11 @@ const Message = ({ item: message }) => (
     badge={
       message.nbMessageUnread > 0
         ? {
-            value: message.nbMessageUnread,
-            status: 'success',
-            textStyle: { paddingRight: 10, paddingLeft: 10 },
-            containerStyle: { color: 'gray' },
-          }
+          value: message.nbMessageUnread,
+          status: 'success',
+          textStyle: { paddingRight: 10, paddingLeft: 10 },
+          containerStyle: { color: 'gray' },
+        }
         : undefined
     }
     title={message.name}
