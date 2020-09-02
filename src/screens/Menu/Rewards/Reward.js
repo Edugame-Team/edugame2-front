@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 import { ListItem, Icon } from 'react-native-elements';
 
 const Reward = ({ reward }) => (

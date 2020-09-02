@@ -10,9 +10,7 @@ import Strings from '../../contants/Strings';
     />
     */
 
-export default ({
-  textStyle, style, screen, title, onPress,
-}) => {
+export default ({ textStyle, style, screen, title, onPress }) => {
   const styles = StyleSheet.create({
     button: {
       width: '100%',

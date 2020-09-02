@@ -15,15 +15,17 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState('');
 
   const loginRequest = () => {
-    requestPost('api/token/getToken', { pseudo: email, password }).then((res) => {
-      if (res.success) {
-        myContext.setUser({
-          logged: true,
-          token: res.token,
-        });
-        navigation.navigate(Strings.navigation.menu.title);
-      }
-    });
+    requestPost('api/token/getToken', { pseudo: email, password }).then(
+      (res) => {
+        if (res.success) {
+          myContext.setUser({
+            logged: true,
+            token: res.token,
+          });
+          navigation.navigate(Strings.navigation.menu.title);
+        }
+      },
+    );
   };
 
   return (

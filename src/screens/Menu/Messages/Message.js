@@ -1,11 +1,6 @@
 import * as React from 'react';
-import {
-  StyleSheet,
-} from 'react-native';
-import {
-  ListItem,
-  Icon,
-} from 'react-native-elements';
+import { StyleSheet } from 'react-native';
+import { ListItem, Icon } from 'react-native-elements';
 
 const Message = ({ item: message }) => (
   <ListItem
@@ -13,15 +8,15 @@ const Message = ({ item: message }) => (
       <Icon style={styles.itemIcon} name="home" type="material-community" />
     )}
     badge={
-        message.nbMessageUnread > 0
-          ? {
+      message.nbMessageUnread > 0
+        ? {
             value: message.nbMessageUnread,
             status: 'success',
             textStyle: { paddingRight: 10, paddingLeft: 10 },
             containerStyle: { color: 'gray' },
           }
-          : undefined
-      }
+        : undefined
+    }
     title={message.name}
     subtitle={message.lastmessage}
     bottomDivider

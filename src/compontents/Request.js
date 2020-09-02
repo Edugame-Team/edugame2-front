@@ -21,9 +21,13 @@ const request = (type, url, body, setLoading) => {
     .catch((error) => {
       console.error(error);
     })
-    .finally(() => { if (setLoading !== undefined) setLoading(false); });
+    .finally(() => {
+      if (setLoading !== undefined) setLoading(false);
+    });
 };
 
-export const requestPost = (url, body, setLoading) => request('POST', url, body, setLoading);
+export const requestPost = (url, body, setLoading) =>
+  request('POST', url, body, setLoading);
 
-export const requestGet = (url, body, setLoading) => request('GET', url, body, setLoading);
+export const requestGet = (url, body, setLoading) =>
+  request('GET', url, body, setLoading);
