@@ -3,7 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { DrawerActions } from '@react-navigation/native';
-import AppContext from '../../compontents/AppContext';
+import AppContext from '../../components/AppContext';
 
 import Strings from '../../contants/Strings';
 

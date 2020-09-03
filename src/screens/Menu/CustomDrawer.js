@@ -6,7 +6,7 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
-import Alert from '../../compontents/AlertOk';
+import Alert from '../../components/AlertOk';
 
 import Strings from '../../contants/Strings';
 

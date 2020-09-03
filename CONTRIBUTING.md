@@ -10,6 +10,27 @@
 - [Liens](#liens)
 - [Glossaire](#glossaire)
 
+## First of all
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Please make sure to update tests as appropriate, so does the linter.
+
+The project structure is located in the src directory. In it you can find 3 subdirectories :
+ - components : you can find in it the global components usable everywhere.
+ - constants : this is the global variables that you can import. String and colors are situated there.
+ - screens : the screens are the pages that you'll find in you app web and mobile.
+
+To create a new screen, please respect the dir creation with an index file in it.
+
+Exemple :
+```
+|-Menu
+|----->Rewards
+|---------->index.js
+|---------->Reward.js
+|----->index.js
+```
+
 ## Les issues
 
 Le système d'issues de github n'est pas le plus complet mais il permet d'avoir tout de même un bon suivi.

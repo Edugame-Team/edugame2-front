@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
 
-import AppContext from '../../../compontents/AppContext';
-import Button from '../../../compontents/form/Button';
-import Input from '../../../compontents/form/Input';
+import AppContext from '../../../components/AppContext';
+import Button from '../../../components/form/Button';
+import Input from '../../../components/form/Input';
 
-import { requestPost } from '../../../compontents/Request';
+import { requestPost } from '../../../components/Request';
 
 import Strings from '../../../contants/Strings';
 

@@ -12,7 +12,7 @@ import ChooseType from './screens/auth/ChooseType';
 
 import Strings from './contants/Strings';
 
-import AppContext from './compontents/AppContext';
+import AppContext from './components/AppContext';
 
 const Stack = createStackNavigator();
 
