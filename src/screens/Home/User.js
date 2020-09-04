@@ -3,7 +3,7 @@ import {
   Platform, StyleSheet, Text, View,
 } from 'react-native';
 import { Card, Image } from 'react-native-elements';
-import TextString from '../../../components/form/TextString';
+import TextString from '../../components/form/TextString';
 
 const User = ({ user }) => (
   <Card style={styles.card}>

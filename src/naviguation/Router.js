@@ -1,32 +1,35 @@
 import React, { useContext } from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  Text, TouchableOpacity, StyleSheet,
+} from 'react-native';
 import { Icon, Badge } from 'react-native-elements';
 
 import 'react-native-gesture-handler';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Menu from './screens/Menu';
-import Login from './screens/auth/Login';
-import ChooseType from './screens/auth/ChooseType';
+import Menu from './Menu';
+import Login from '../screens/auth/Login';
+import ChooseType from '../screens/auth/ChooseType';
 
-import Strings from './contants/Strings';
+import Strings from '../contants/Strings';
 
-import AppContext from './components/AppContext';
+import AppContext from '../components/AppContext';
 
 const Stack = createStackNavigator();
-
-// const linking = {};
 
 export default function App() {
   const myContext = useContext(AppContext);
 
   // linking={linking}
   return (
-    <NavigationContainer fallback={<Text>Loading...</Text>}>
+    <NavigationContainer linking={{}} fallback={<Text>Loading...</Text>}>
       <Stack.Navigator
         screenOptions={{
           gestureEnabled: true,
+          headerStyle: {
+          },
+          cardStyle: { backgroundColor: '#F1F7F7' },
         }}
         initialRouteName={
           myContext.user.logged
@@ -85,5 +88,10 @@ const styles = StyleSheet.create({
   },
   spaceView: {
     width: 5,
+  },
+  baseBackground: {
+    backgroundColor: '#1d7110',
+    height: '100%',
+    width: '100%',
   },
 });

@@ -20,6 +20,7 @@ export default ({
       height: 50,
       alignItems: 'center',
       justifyContent: 'center',
+      backgroundColor: '#53DECE',
     },
     text: textStyle,
   });

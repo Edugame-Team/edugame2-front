@@ -7,13 +7,13 @@ import AppContext from '../../components/AppContext';
 
 import Strings from '../../contants/Strings';
 
-import Home from './Home';
-import Path from './Path';
-import Library from './Library';
-import Messages from './Messages';
-import Stats from './Stats';
-import Rewards from './Rewards';
-import Help from './Help';
+import Home from '../../screens/Home';
+import Path from '../../screens/Path';
+import Library from '../../screens/Library';
+import Messages from '../../screens/Messages';
+import Stats from '../../screens/Stats';
+import Rewards from '../../screens/Rewards';
+import Help from '../../screens/Help';
 
 import CustomDrawerContent from './CustomDrawer';
 
