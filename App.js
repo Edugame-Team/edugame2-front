@@ -38,13 +38,12 @@ export default function App() {
     setIsLargeScreen,
   };
 
-
   //= ==========================================
   // router
   //= ==========================================
   return (
     <AppContext.Provider value={settings}>
-      <Router  />
+      <Router />
     </AppContext.Provider>
   );
 }

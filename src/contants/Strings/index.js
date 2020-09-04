@@ -42,10 +42,14 @@ export default {
         password_error: 'ERROR PASSWORD',
       },
       button: {
-        login: 'LOGIN',
+        login: 'Sign in to my account',
         signup: 'Signup',
-        forgot_password: 'Forgot Password ?',
+        reset_password: 'Password Reset',
       },
+      title: 'Sign In',
+      subTitle: 'Sign in with your details',
+      forgot_password: 'Forgot Password ? - ',
+      have_an_account: 'Don\'t have an account ? - ',
     },
     home: {
       text: {

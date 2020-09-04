@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   View, StyleSheet, Text, TouchableOpacity,
 } from 'react-native';
+import Colors from '../../../contants/Colors';
 
 const Type = ({ user, navigation }) => (
   <View style={styles.itemContainer}>
@@ -18,7 +19,7 @@ export default Type;
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: '#ffcfff',
+    backgroundColor: Colors.mainColor,
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
+    color: Colors.mainTextcolor,
     fontSize: 32,
   },
 });

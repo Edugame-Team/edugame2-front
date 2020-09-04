@@ -12,6 +12,15 @@
     ],
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    // "icon": "./assets/splash.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    }
   }
 }

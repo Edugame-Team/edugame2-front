@@ -6,6 +6,7 @@ import { DrawerActions } from '@react-navigation/native';
 import AppContext from '../../components/AppContext';
 
 import Strings from '../../contants/Strings';
+import Colors from '../../contants/Colors';
 
 import Home from '../../screens/Home';
 import Path from '../../screens/Path';
@@ -47,8 +48,10 @@ const Menu = ({ navigation }) => {
   return (
     <Drawer.Navigator
       drawerContentOptions={{
-        activeTintColor: '#e91e63',
-        itemStyle: { marginVertical: 2 },
+        activeTintColor: Colors.mainTextcolor,
+        itemStyle: {
+          marginVertical: 2,
+        },
       }}
       initialRouteName={Strings.navigation.menu.child.home}
       openByDefault

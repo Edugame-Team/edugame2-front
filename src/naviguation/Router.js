@@ -21,7 +21,7 @@ const Stack = createStackNavigator();
 export default function App() {
   const myContext = useContext(AppContext);
 
-  // linking={linking}
+  // {myContext.user.logged && ()}
   return (
     <NavigationContainer linking={{}} fallback={<Text>Loading...</Text>}>
       <Stack.Navigator
@@ -37,37 +37,35 @@ export default function App() {
             : Strings.navigation.chooseType.title
         }
       >
-        {myContext.user.logged && (
-          <Stack.Screen
-            options={({ navigation }) => ({
-              headerTitle: (props) => <Text {...props} />,
-              headerRight: () => (
-                <TouchableOpacity
-                  onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-                >
-                  <Icon
-                    style={styles.headerIcon}
-                    name="bell"
-                    type="material-community"
-                    size={25}
-                  />
-                  <Badge
-                    style={styles.iconBadge}
-                    status="error"
-                    containerStyle={{
-                      position: 'absolute',
-                      top: -4,
-                      right: 7,
-                    }}
-                    value={1}
-                  />
-                </TouchableOpacity>
-              ),
-            })}
-            name={Strings.navigation.menu.title}
-            component={Menu}
-          />
-        )}
+        <Stack.Screen
+          options={({ navigation }) => ({
+            headerTitle: (props) => <Text {...props} />,
+            headerRight: () => (
+              <TouchableOpacity
+                onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+              >
+                <Icon
+                  style={styles.headerIcon}
+                  name="bell"
+                  type="material-community"
+                  size={25}
+                />
+                <Badge
+                  style={styles.iconBadge}
+                  status="error"
+                  containerStyle={{
+                    position: 'absolute',
+                    top: -4,
+                    right: 7,
+                  }}
+                  value={1}
+                />
+              </TouchableOpacity>
+            ),
+          })}
+          name={Strings.navigation.menu.title}
+          component={Menu}
+        />
 
         <Stack.Screen name={Strings.navigation.login.title} component={Login} />
 
