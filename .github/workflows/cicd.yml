@@ -20,7 +20,7 @@ jobs:
         with:
           path: |
             **/node_modules
-          key: ${{ runner.os }}-${{ node_modules }}
+          key: ${{ runner.os }}-node_modules
             
       - name: get current version
         run:  echo "EDUGAME_PROJECT_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
