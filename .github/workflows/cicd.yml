@@ -9,39 +9,33 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote script -> Preprod
-        if: github.ref == 'refs/heads/develop'
-        uses: appleboy/ssh-action@master
+      - uses: actions/checkout@v1
+        
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+            
+      - name: get current version
+        run:  echo "EDUGAME_PROJECT_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
         with:
-          host: ${{ secrets.SSH_HOST_PREPROD }}
-          username: ${{ secrets.SSH_USERNAME_PREPROD }}
-          password: ${{ secrets.SSH_PASSWORD_PREPROD }}
-          port: ${{ secrets.SSH_PORT_PREPROD }}
-          script: |
-            cd /var/www/edugame/preprod
-            git clone https://github.com/Edugame-Team/edugame2-front
-            cd edugame2-front
-            git checkout develop
-            git pull
-            yarn install
-            yarn web:generate
-            docker-compose -p edugame_front_dev up -d --build
-            docker network connect nginx_default edugame_front_dev_web_1 || true
-      - name: executing remote script -> Prod
-        if: github.ref == 'refs/heads/master'
-        uses: appleboy/ssh-action@master
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Yarn install
+        run: yarn install
+      
+      - name: Generate front web app
+        run: yarn web:generate
+        
+      - name: Build and push
+        uses: docker/build-push-action@v2
         with:
-          host: ${{ secrets.SSH_HOST_PROD }}
-          username: ${{ secrets.SSH_USERNAME_PROD }}
-          password: ${{ secrets.SSH_PASSWORD_PROD }}
-          port: ${{ secrets.SSH_PORT_PROD }}
-          script: |
-            cd /var/www/edugame/prod
-            git clone https://github.com/Edugame-Team/edugame2-front
-            cd edugame2-front
-            git checkout master
-            git pull
-            yarn install
-            yarn web:generate
-            docker-compose -p edugame_front_main up -d --build
-            docker network connect nginx_default edugame_front_main_web_1 || true
+          context: .
+          push: true
+          tags: |
+            edugame/front:latest
+            edugame/front:staging
+            edugame/front:${{ env.EDUGAME_PROJECT_VERSION }}
