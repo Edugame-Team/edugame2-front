@@ -44,7 +44,6 @@ Pour lancer les tests :
 ```bash
 yarn test
 ```
-
 ## Auteurs
 
 * **Fahim BENCHAABANE** - <fahim.benchaabane@epitech.eu> - [fahimbench](https://github.com/fahimbench)
@@ -53,7 +52,4 @@ yarn test
 
 ## Licence
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
-
-
-
 
