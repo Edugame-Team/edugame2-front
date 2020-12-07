@@ -24,7 +24,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Yarn install
+      - name: Install node packages
         run: yarn install
       
       - name: Generate front web app
