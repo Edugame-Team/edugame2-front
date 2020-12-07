@@ -1,9 +1,9 @@
 FROM nginx
 
-RUN mkdir /app
-
 EXPOSE 80
 
-WORKDIR /app
+WORKDIR /usr/share/nginx/html/
+
+RUN rm *
 
 COPY ./web-build/ .
