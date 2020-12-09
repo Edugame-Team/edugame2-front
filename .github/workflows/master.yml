@@ -30,7 +30,7 @@ jobs:
         run:  |
           curl 'https://hub.docker.com/v2/edugame/front/manifests/${{ env.EDUGAME_PROJECT_VERSION }}' \
           -H 'Accept: application/vnd.docker.distribution.manifest.v2+json' \
-          -H "Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" \
+          -H "Authorization: Jwt ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" \
           > manifest.json
 
       - name: cat man
@@ -40,7 +40,7 @@ jobs:
         run: |
           curl -PUT 'https://hub.docker.com/v2/edugame/front/manifests/production' \
           -H 'content-type: application/vnd.docker.distribution.manifest.v2+json' \
-          -H "Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" \
+          -H "Authorization: Jwt ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" \
           -d '@manifest.json'
 
       #- name: Tag Release
