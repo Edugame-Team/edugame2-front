@@ -3,8 +3,11 @@ import React, {
 } from 'react';
 
 import { Dimensions } from 'react-native';
+import Toast from 'react-native-toast-message';
 import AppContext from './src/components/AppContext';
 import Router from './src/naviguation/Router';
+
+import { getUser } from './src/functions/auth';
 
 export default function App() {
   //= ==========================================
@@ -26,10 +29,7 @@ export default function App() {
   //= ==========================================
   // global variables
   //= ==========================================
-  const [user, setUser] = useState({
-    logged: false,
-    token: '',
-  });
+  const [user, setUser] = useState(getUser());
 
   const settings = {
     user,
@@ -44,6 +44,7 @@ export default function App() {
   return (
     <AppContext.Provider value={settings}>
       <Router />
+      <Toast ref={(ref) => Toast.setRef(ref)} />
     </AppContext.Provider>
   );
 }

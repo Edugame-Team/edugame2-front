@@ -1,40 +1,19 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import {
   Text, SafeAreaView, View, StyleSheet,
 } from 'react-native';
 
-import AppContext from '../../../components/AppContext';
 import Button from '../../../components/form/Button';
 import Input from '../../../components/form/Input';
-
-import { requestPost } from '../../../components/Request';
 
 import Strings from '../../../contants/Strings';
 import Colors from '../../../contants/Colors';
 
+import { loginRequest } from '../../../functions/auth';
+
 const Login = ({ navigation }) => {
-  const myContext = useContext(AppContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const loginRequest = () => {
-    myContext.setUser({
-      logged: true,
-      token: 'coucou',
-    });
-    navigation.navigate(Strings.navigation.menu.title);
-    // requestPost('token/getToken', { pseudo: email, password }).then(
-    //  (res) => {
-    //    if (res !== undefined && res.success) {
-    //      myContext.setUser({
-    //        logged: true,
-    //        token: res.token,
-    //      });
-    //      navigation.navigate(Strings.navigation.menu.title);
-    //    }
-    //  },
-    // );
-  };
 
   return (
     <View style={[styles.container, styles.globalContainer]}>
@@ -61,7 +40,9 @@ const Login = ({ navigation }) => {
         <Button
           screen="login"
           title="login"
-          onPress={() => loginRequest()}
+          onPress={() => loginRequest(email, password, () => {
+            navigation.navigate(Strings.navigation.menu.title);
+          })}
         />
         <SafeAreaView style={styles.textButtonContainer}>
           <Text style={styles.textButton}>
@@ -85,7 +66,7 @@ const Login = ({ navigation }) => {
           screen="login"
           style={[styles.reset_password]}
           title="reset_password"
-          onPress={() => loginRequest()}
+          onPress={() => console.log('reset password')}
           textStyle={styles.textButton}
           textButton
         />
