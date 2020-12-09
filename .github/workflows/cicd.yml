@@ -49,8 +49,8 @@ jobs:
           push: true
           tags: |
             edugame/front:latest
-
             edugame/front:${{ env.EDUGAME_PROJECT_VERSION }}
+            
   deploy:
     name: Deploy on staging
     runs-on: ubuntu-latest
@@ -58,10 +58,25 @@ jobs:
       - name: Adding staging tag
         run: curl -X PUT -u "$AUTH" -H "Content-Type:$CONTENT_TYPE" -d "$MANIFEST" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/$TAG_NEW"
         env:
-          REGISTRY_NAME="http://hub.docker.com:5000"
-          REPOSITORY=edugame/front
-          TAG_OLD=${{ env.EDUGAME_PROJECT_VERSION }}
-          TAG_NEW=staging
-          CONTENT_TYPE=" application/vnd.docker.distribution.manifest.v2+json"
-          AUTH=${{ secrets.DOCKER_HUB_USERNAME }}:${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-          MANIFEST=$(curl -u $AUTH -H "Accept:$CONTENT_TYPE" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/$TAG_OLD}")
+          REGISTRY_NAME: "http://hub.docker.com:5000"
+          REPOSITORY: edugame/front
+          TAG_OLD: ${{ env.EDUGAME_PROJECT_VERSION }}
+          TAG_NEW: staging
+          CONTENT_TYPE: " application/vnd.docker.distribution.manifest.v2+json"
+          AUTH: ${{ secrets.DOCKER_HUB_USERNAME }}:${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          MANIFEST: $(curl -u $AUTH -H "Accept:$CONTENT_TYPE" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/$TAG_OLD}")
+          
+  manual_deploy:
+    name: Deploy on production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Adding staging tag
+        run: curl -X PUT -u "$AUTH" -H "Content-Type:$CONTENT_TYPE" -d "$MANIFEST" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/$TAG_NEW"
+        env:
+          REGISTRY_NAME: "http://hub.docker.com:5000"
+          REPOSITORY: edugame/front
+          TAG_OLD: ${{ env.EDUGAME_PROJECT_VERSION }}
+          TAG_NEW: production
+          CONTENT_TYPE: " application/vnd.docker.distribution.manifest.v2+json"
+          AUTH: ${{ secrets.DOCKER_HUB_USERNAME }}:${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          MANIFEST: $(curl -u $AUTH -H "Accept:$CONTENT_TYPE" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/$TAG_OLD}")
