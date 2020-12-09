@@ -11,7 +11,7 @@ jobs:
       REGISTRY_NAME: "https://hub.docker.com"
       REPOSITORY: edugame/front
       CONTENT_TYPE: " application/vnd.docker.distribution.manifest.v2+json"
-      AUTH: "Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}"
+      AUTH: "Authorization:Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}"
 
     steps:
       - uses: actions/checkout@v1
@@ -20,9 +20,9 @@ jobs:
         run:  echo "EDUGAME_PROJECT_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
       - name: Get manigest tags
-        run: export MANIFEST=$(curl -H $AUTH -H "Accept:$CONTENT_TYPE" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/${{ env.EDUGAME_PROJECT_VERSION }}}")
+        run: export MANIFEST=$(curl -H "$AUTH" -H "Accept:$CONTENT_TYPE" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/${{ env.EDUGAME_PROJECT_VERSION }}}")
              
       - name: Deploy
-        run: curl -X PUT -H $AUTH -H "Content-Type:$CONTENT_TYPE" -d "$MANIFEST" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/$TAG_NEW"
+        run: curl -X PUT -H "$AUTH" -H "Content-Type:$CONTENT_TYPE" -d "$MANIFEST" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/$TAG_NEW"
         env:
           TAG_NEW: production
