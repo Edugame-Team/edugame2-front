@@ -27,16 +27,18 @@ jobs:
       #   build-args: PROFILE=nectar,ARG2=test
 
       - name: Get Manifest
-        run:  curl 'hub.docker.com/v2/edugame/manifests/${{ env.EDUGAME_PROJECT_VERSION }}' \
-              -H 'accept: application/vnd.docker.distribution.manifest.v2+json' \
-              -H "Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" \
-              > manifest.json
+        run:  |
+          curl 'hub.docker.com/v2/edugame/manifests/${{ env.EDUGAME_PROJECT_VERSION }}' \
+          -H 'accept: application/vnd.docker.distribution.manifest.v2+json' \
+          -H "Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" \
+          > manifest.json
 
       - name: Add tag
-        run:  curl -XPUT 'hub.docker.com/v2/edugame/manifests/production' \
-              -H 'content-type: application/vnd.docker.distribution.manifest.v2+json' \
-              -H "Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" \
-              -d '@manifest.json'
+        run: |
+          curl -XPUT 'hub.docker.com/v2/edugame/manifests/production' \
+          -H 'content-type: application/vnd.docker.distribution.manifest.v2+json' \
+          -H "Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" \
+          -d '@manifest.json'
 
       #- name: Tag Release
       #  uses: shrink/actions-docker-registry-tag@v1
