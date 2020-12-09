@@ -17,7 +17,11 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Increment version
-        run: yarn version --patch --no-commit-hooks; git commit --amend -m "NO_CI build release $(git log -n 1 | grep . | grep "^ ")" -n
+        run:  git config --global user.email "github@edugame.fr"; \
+              git config --global user.name "Github Ci/Cd"; \
+              yarn version --patch --no-commit-hooks; \
+              git commit --amend -m "NO_CI build release $(git log -n 1 | grep . | grep "^ ")" -n
+
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
