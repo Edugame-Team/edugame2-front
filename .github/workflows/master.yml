@@ -11,7 +11,7 @@ jobs:
       REGISTRY_NAME: "https://hub.docker.com"
       REPOSITORY: edugame/front
       CONTENT_TYPE: " application/vnd.docker.distribution.manifest.v2+json"
-      AUTH: Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      AUTH: "Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}"
 
     steps:
       - uses: actions/checkout@v1
