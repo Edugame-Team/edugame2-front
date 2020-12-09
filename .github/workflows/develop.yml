@@ -22,7 +22,11 @@ jobs:
           git config --global user.name "Github Ci/Cd"
           yarn version --patch --no-commit-hooks
           git commit --amend -m 'NO_CI build release $(git log -n 1 | grep . | grep "^ ")' -n
-          git push origin HEAD:develop
+
+      - name: Commit & Push new version
+        uses: actions-js/push@develop
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Docker Buildx
         id: buildx
