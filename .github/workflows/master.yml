@@ -20,13 +20,30 @@ jobs:
       #    key: ${{ runner.os }}-buildx-${{ github.sha }}
       #    restore-keys: |
       #    ${{ runner.os }}-buildx-
+      #
+      #   cache-from: type=registry,ref=hustakin/hello-world-docker-action:latest
+      #   cache-to: type=inline
+      #   tags: hustakin/hello-world-docker-action:latest
+      #   build-args: PROFILE=nectar,ARG2=test
 
-      - name: Tag Release
-        uses: shrink/actions-docker-registry-tag@v1
-        with:
-          registry: hub.docker.com/v2/edugame
-          token: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-          repository: front
-          target: ${{ env.EDUGAME_PROJECT_VERSION }}
-          tags: |
-            production
+      - name: Get Manifest
+        run:  curl 'hub.docker.com/v2/edugame/manifests/${{ env.EDUGAME_PROJECT_VERSION }}' \
+              -H 'accept: application/vnd.docker.distribution.manifest.v2+json' \
+              -H "Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" \
+              > manifest.json
+
+      - name: Add tag
+        run:  curl -XPUT 'hub.docker.com/v2/edugame/manifests/production' \
+              -H 'content-type: application/vnd.docker.distribution.manifest.v2+json' \
+              -H "Authorization: Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" \
+              -d '@manifest.json'
+
+      #- name: Tag Release
+      #  uses: shrink/actions-docker-registry-tag@v1
+      #  with:
+      #    registry: hub.docker.com/v2/edugame
+      #    token: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      #    repository: front
+      #    target: ${{ env.EDUGAME_PROJECT_VERSION }}
+      #    tags: |
+      #      production
