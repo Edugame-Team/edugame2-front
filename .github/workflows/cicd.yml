@@ -49,5 +49,18 @@ jobs:
           push: true
           tags: |
             edugame/front:latest
-            edugame/front:staging
+
             edugame/front:${{ env.EDUGAME_PROJECT_VERSION }}
+  deploy:
+    name: Deploy on staging
+    runs-on: ubuntu-latest
+    steps:
+      - name:
+        run:  export REGISTRY_NAME="http://hub.docker.com:5000"; \
+              export REPOSITORY=rd/dind; \
+              export TAG_OLD=${{ env.EDUGAME_PROJECT_VERSION }}; \
+              export TAG_NEW=staging; \
+              export CONTENT_TYPE="application/vnd.docker.distribution.manifest.v2+json"; \
+              export AUTH="${{ secrets.DOCKER_HUB_USERNAME }}:${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}"; \
+              export MANIFEST=$(curl -u $AUTH -H "Accept: ${CONTENT_TYPE}" "${REGISTRY_NAME}/v2/${REPOSITORY}/manifests/${TAG_OLD}"); \
+              curl -X PUT -u "$AUTH" -H "Content-Type: ${CONTENT_TYPE}" -d "${MANIFEST}" "${REGISTRY_NAME}/v2/${REPOSITORY}/manifests/${TAG_NEW}"
