@@ -27,6 +27,6 @@ jobs:
           registry: hub.docker.com
           token: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           repository: edugame/front
-          target: ${{ env.EDUGAME_PROJECT_VERSION }}}
+          target: ${{ env.EDUGAME_PROJECT_VERSION }}
           tags: |
             production
