@@ -6,13 +6,11 @@ on:
       - develop
 jobs:
   build:
-    name: Build
+    name: Build and deploy
     runs-on: ubuntu-latest
-    
     env:
       REGISTRY_NAME: "https://hub.docker.com"
       REPOSITORY: edugame/front
-      TAG_OLD: ${{ env.EDUGAME_PROJECT_VERSION }}
       CONTENT_TYPE: " application/vnd.docker.distribution.manifest.v2+json"
       AUTH: ${{ secrets.DOCKER_HUB_USERNAME }}:${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
@@ -60,7 +58,7 @@ jobs:
             edugame/front:${{ env.EDUGAME_PROJECT_VERSION }}
       
       - name: Get manigest tags
-        run: export MANIFEST=$(curl -u $AUTH -H "Accept:$CONTENT_TYPE" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/$TAG_OLD}")
+        run: export MANIFEST=$(curl -u $AUTH -H "Accept:$CONTENT_TYPE" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/${{ env.EDUGAME_PROJECT_VERSION }}}")
              
       - name: Deploy on staging
         if: github.ref == 'refs/heads/develop'
