@@ -20,7 +20,8 @@ jobs:
         run:  git config --global user.email "github@edugame.fr"; \
               git config --global user.name "Github Ci/Cd"; \
               yarn version --patch --no-commit-hooks; \
-              git commit --amend -m "NO_CI build release $(git log -n 1 | grep . | grep "^ ")" -n
+              git commit --amend -m 'NO_CI build release $(git log -n 1 | grep . | grep "^ ")' -n; \
+              git push
 
       - name: Set up Docker Buildx
         id: buildx
