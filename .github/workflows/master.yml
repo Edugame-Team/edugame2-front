@@ -7,22 +7,26 @@ jobs:
   deploy:
     name: Deploy on production
     runs-on: ubuntu-latest
-    env:
-      REGISTRY_NAME: "https://hub.docker.com"
-      REPOSITORY: edugame/front
-      CONTENT_TYPE: " application/vnd.docker.distribution.manifest.v2+json"
-      AUTH: "Authorization:Bearer ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}"
-
     steps:
       - uses: actions/checkout@v1
 
       - name: Get current version
         run:  echo "EDUGAME_PROJECT_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
-      - name: Get manigest tags
-        run: export MANIFEST=$(curl -H "$AUTH" -H "Accept:$CONTENT_TYPE" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/${{ env.EDUGAME_PROJECT_VERSION }}}")
-             
-      - name: Deploy
-        run: curl -X PUT -H "$AUTH" -H "Content-Type:$CONTENT_TYPE" -d "$MANIFEST" "$REGISTRY_NAME/v2/$REPOSITORY/manifests/$TAG_NEW"
-        env:
-          TAG_NEW: production
+      #- name: Cache Docker layers
+      #  uses: actions/cache@v2
+      #  with:
+      #    path: /tmp/.buildx-cache
+      #    key: ${{ runner.os }}-buildx-${{ github.sha }}
+      #    restore-keys: |
+      #    ${{ runner.os }}-buildx-
+
+      - name: Tag Release
+        uses: shrink/actions-docker-registry-tag@v1
+        with:
+          registry: hub.docker.com
+          token: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          repository: edugame/front
+          target: ${{ env.EDUGAME_PROJECT_VERSION }}}
+          tags: |
+            production
