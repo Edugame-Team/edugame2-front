@@ -19,23 +19,14 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: toto
-        run: docker images
-
       - name: Pull version to push
         run: docker pull edugame/front:${{ env.EDUGAME_PROJECT_VERSION }}
 
-      - name: toto
-        run: docker images
-
-      - name: add production tag
+      - name: Add production tag
         run: docker tag edugame/front:${{ env.EDUGAME_PROJECT_VERSION }} edugame/front:production
 
-      - name: toto
-        run: docker images
-
       - name: Push image
-        run: docker image push --all-tags edugame/front
+        run: docker image push edugame/front:production
 
       - name: toto
         run: docker images
