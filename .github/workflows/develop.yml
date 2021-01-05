@@ -62,6 +62,5 @@ jobs:
           context: .
           push: true
           tags: |
-            edugame/front:latest
             edugame/front:staging
             edugame/front:${{ env.EDUGAME_PROJECT_VERSION }}

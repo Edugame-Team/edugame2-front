@@ -19,16 +19,23 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+      - name: toto
+        run: docker images
+
       - name: Pull version to push
         run: docker pull edugame/front:${{ env.EDUGAME_PROJECT_VERSION }}
+
+      - name: toto
+        run: docker images
 
       - name: add production tag
         run: docker tag $(docker images | grep edugame | grep latest | awk '{print $3}') edugame/front:production
 
+      - name: toto
+        run: docker images
+
       - name: Push image
         run: docker image push --all-tags edugame/front
-j
-        with:
-          push: true
-          tags: |
-            edugame/front:production
+
+      - name: toto
+        run: docker images
