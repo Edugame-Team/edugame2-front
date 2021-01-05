@@ -22,8 +22,12 @@ jobs:
       - name: Pull version to push
         run: docker pull edugame/front:${{ env.EDUGAME_PROJECT_VERSION }}
 
-      - name: Build and push
-        uses: docker/push-action@v2
+      - name: add production tag
+        run: docker tag $(docker images | grep edugame | grep latest | awk '{print $3}') edugame/front:production
+
+      - name: Push image
+        run: docker image push --all-tags edugame/front
+j
         with:
           push: true
           tags: |
