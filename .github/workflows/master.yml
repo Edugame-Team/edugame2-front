@@ -27,6 +27,3 @@ jobs:
 
       - name: Push image
         run: docker image push edugame/front:production
-
-      - name: toto
-        run: docker images
