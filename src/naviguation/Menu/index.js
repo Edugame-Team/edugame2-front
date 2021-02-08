@@ -17,6 +17,7 @@ import Rewards from '../../screens/Rewards';
 import Help from '../../screens/Help';
 
 import CustomDrawerContent from './CustomDrawer';
+import Profile from "../../screens/Profile";
 
 const Drawer = createDrawerNavigator();
 
@@ -99,6 +100,11 @@ const Menu = ({ navigation }) => {
         name={screenName.rewards}
         options={options('trophy-variant', 'material-community')}
         component={Rewards}
+      />
+      <Drawer.Screen
+          name={screenName.profil}
+          options={options('face')}
+          component={Profile}
       />
       <Drawer.Screen
         name={screenName.help}
