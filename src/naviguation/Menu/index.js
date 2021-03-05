@@ -3,21 +3,21 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { DrawerActions } from '@react-navigation/native';
-import AppContext from '../../components/AppContext';
 
-import Strings from '../../contants/Strings';
-import Colors from '../../contants/Colors';
+import Strings from '@constants/Strings';
+import Colors from '@constants/Colors';
 
-import Home from '../../screens/Home';
-import Path from '../../screens/Path';
-import Library from '../../screens/Library';
-import Messages from '../../screens/Messages';
-import Stats from '../../screens/Stats';
-import Rewards from '../../screens/Rewards';
-import Help from '../../screens/Help';
+import Home from '@screens/Home';
+import Path from '@screens/Path';
+import Library from '@screens/Library';
+import Messages from '@screens/Messages';
+import Stats from '@screens/Stats';
+import Rewards from '@screens/Rewards';
+import Help from '@screens/Help';
 
+import Profile from '@screens/Profile';
 import CustomDrawerContent from './CustomDrawer';
-import Profile from "../../screens/Profile";
+import AppContext from '../../components/AppContext';
 
 const Drawer = createDrawerNavigator();
 
@@ -102,9 +102,9 @@ const Menu = ({ navigation }) => {
         component={Rewards}
       />
       <Drawer.Screen
-          name={screenName.profil}
-          options={options('face')}
-          component={Profile}
+        name={screenName.profil}
+        options={options('face')}
+        component={Profile}
       />
       <Drawer.Screen
         name={screenName.help}

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-import Colors from '../../contants/Colors';
-import Strings from '../../contants/Strings';
+import Colors from '@constants/Colors';
+import Strings from '@constants/Strings';
 
 export default ({
   textStyle, style, screen, title, onPress, textButton,

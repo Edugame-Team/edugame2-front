@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { StyleSheet, TextInput } from 'react-native';
 
-import Strings from '../../contants/Strings';
+import Strings from '@constants/Strings';
 
 export default ({
   style,

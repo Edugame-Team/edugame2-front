@@ -6,9 +6,9 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
-import Alert from '../../components/AlertOk';
+import Alert from '@components/AlertOk';
 
-import Strings from '../../contants/Strings';
+import Strings from '@constants/Strings';
 
 const CustomDrawerContent = (props) => {
   const popupPressed = () => {

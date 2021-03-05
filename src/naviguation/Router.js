@@ -8,13 +8,11 @@ import 'react-native-gesture-handler';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import Login from '@screens/auth/Login';
+import ChooseType from '@screens/auth/ChooseType';
+import Strings from '@constants/Strings';
+import AppContext from '@components/AppContext';
 import Menu from './Menu';
-import Login from '../screens/auth/Login';
-import ChooseType from '../screens/auth/ChooseType';
-
-import Strings from '../contants/Strings';
-
-import AppContext from '../components/AppContext';
 
 const Stack = createStackNavigator();
 

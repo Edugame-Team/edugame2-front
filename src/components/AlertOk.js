@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import { Platform, Alert } from 'react-native';
-import Strings from '../contants/Strings';
+import Strings from '@constants/Strings';
 
 const phone = (title, question, callback) => {
   Alert.alert(
