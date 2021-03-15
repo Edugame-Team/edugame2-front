@@ -4,11 +4,13 @@ import {
 } from 'react-native';
 import Colors from '../../../contants/Colors';
 
+/* eslint-disable global-require */
 const backgroundImages = [
   require('../../../../assets/img/type/eleve.jpg'),
   require('../../../../assets/img/type/parent.jpg'),
   require('../../../../assets/img/type/prof.jpg'),
 ];
+/* eslint-enable global-require */
 
 const Type = ({ user, navigation }) => (
   <TouchableOpacity
