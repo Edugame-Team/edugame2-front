@@ -14588,6 +14588,13 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rn-double-click@^1.0.3:
+  version "1.0.3"
+  resolved "http://51.68.226.69:4873/rn-double-click/-/rn-double-click-1.0.3.tgz#8610e8b3d5d0fbc078648fef5e0256381d887a0b"
+  integrity sha512-BUIgZLyfnrH4SRGwTXZvl/+1Zum4x2FWVXUGJ5ulAGvAzDamsrx1hiMaT6qz+0TrnCy/DJIS+3Qv8qldkYdNbA==
+  dependencies:
+    prop-types "^15.6.1"
+
 router-ips@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/router-ips/-/router-ips-1.0.0.tgz#44e00858ebebc0133d58e40b2cd8a1fbb04203f5"

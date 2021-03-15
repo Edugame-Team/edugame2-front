@@ -3,53 +3,57 @@ export default {
     menu: {
       title: 'EduGame',
       child: {
-        home: 'Acceuil',
+        home: 'Accueil',
         path: 'Parcours',
         library: 'Bibliotheque',
         messages: 'Messagerie',
         stats: 'Statistiques',
-        rewards: 'Trophees',
+        rewards: 'Trophées',
+        profil: 'Profil',
         help: 'Aide',
-        disconnect: 'Se deconnecter',
+        disconnect: 'Se déconnecter',
       },
     },
     login: {
       title: 'Login',
     },
     chooseType: {
-      title: 'Choose type',
+      title: 'Qui êtes vous?',
     },
   },
   screens: {
     choose_type: {
       student: {
         id: 1,
-        choose_type: 'Je suis un élève',
+        choose_type: 'Élève',
+        img: 'eleve.jpg'
       },
       parent: {
         id: 2,
-        choose_type: 'Je suis parent',
+        choose_type: 'Parent',
+        img: 'parent.jpg'
       },
       professor: {
         id: 3,
-        choose_type: 'Je suis professeur',
+        choose_type: 'Professeur',
+        img: 'prof.jpg'
       },
     },
     login: {
       input: {
         email: 'Email',
-        password: 'Password',
+        password: 'Mot de passe',
         password_error: 'ERROR PASSWORD',
       },
       button: {
-        login: 'Sign in to my account',
-        signup: 'Signup',
-        reset_password: 'Password Reset',
+        login: 'Se connecter',
+        signup: 'Créer un compte',
+        reset_password: 'Réinitialiser le mot de passe',
       },
-      title: 'Sign In',
-      subTitle: 'Sign in with your details',
-      forgot_password: 'Forgot Password ? - ',
-      have_an_account: 'Don\'t have an account ? - ',
+      title: 'Connexion',
+      subTitle: 'Veuillez vous connecter',
+      forgot_password: 'Mot de passe oublié? - ',
+      have_an_account: 'Pas encore de compte ? - ',
     },
     home: {
       text: {

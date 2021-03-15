@@ -1,35 +1,54 @@
 import * as React from 'react';
 import {
-  View, StyleSheet, Text, TouchableOpacity,
+    StyleSheet, Text, TouchableOpacity,
 } from 'react-native';
+import ImageBackground from "react-native-web/dist/exports/ImageBackground";
 import Colors from '../../../contants/Colors';
+import View from "react-native-web/dist/exports/View";
 
 const Type = ({ user, navigation }) => (
-  <View style={styles.itemContainer}>
-    <TouchableOpacity
-      activeOpacity={0.6}
-      style={styles.item}
-      onPress={() => navigation.navigate('Login')}
+    <TouchableOpacity style={styles.item}
+                      activeOpacity={0.6}
+                      onPress={() => navigation.navigate('Login')}
     >
-      <Text style={styles.title}>{user.choose_type}</Text>
+        <ImageBackground source={require('../../../../assets/img/type/'+ user.img)} style={styles.image}>
+            <View style={styles.filter}>
+                <Text style={styles.text}>{user.choose_type}</Text>
+            </View>
+        </ImageBackground>
     </TouchableOpacity>
-  </View>
 );
 export default Type;
 
 const styles = StyleSheet.create({
-  item: {
-    backgroundColor: Colors.mainColor,
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  itemContainer: {
-    padding: 20,
-    flex: 1,
-  },
-  title: {
-    color: Colors.mainTextcolor,
-    fontSize: 32,
-  },
+    item: {
+        flexDirection: 'column',
+        width: '33%',
+        height: '100%',
+    },
+    image: {
+        backgroundSize: 'cover',
+        width: '100%',
+        height: '100%',
+        flex:1,
+        alignItems: 'stretch',
+        position: 'absolute',
+    },
+    text: {
+        textAlign: 'center',
+        fontSize: 32,
+        paddingVertical: '40',
+        color: Colors.white,
+        marginBottom:25,
+        marginLeft: 5,
+        fontWeight: 'bold',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+    },
+    filter: {
+        height: '100%',
+        backgroundColor: Colors.filter,
+        justifyContent: 'flex-end',
+    }
 });
