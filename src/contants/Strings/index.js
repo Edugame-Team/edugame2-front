@@ -26,17 +26,17 @@ export default {
       student: {
         id: 1,
         choose_type: 'Élève',
-        img: 'eleve.jpg'
+        img: 'eleve.jpg',
       },
       parent: {
         id: 2,
         choose_type: 'Parent',
-        img: 'parent.jpg'
+        img: 'parent.jpg',
       },
       professor: {
         id: 3,
         choose_type: 'Professeur',
-        img: 'prof.jpg'
+        img: 'prof.jpg',
       },
     },
     login: {
