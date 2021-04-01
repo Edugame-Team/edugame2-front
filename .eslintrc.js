@@ -14,9 +14,17 @@ module.exports = {
   },
   plugins: ['react', 'react-native'],
   rules: {
+    'module-resolver/use-alias': 2,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'no-use-before-define': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
+    'comma-dangle': 0
   },
+
+  settings: {
+    'import/resolver': {
+      'babel-module': {}
+    }
+  }
 };

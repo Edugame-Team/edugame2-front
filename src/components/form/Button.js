@@ -3,8 +3,8 @@ import {
   StyleSheet, Text, TouchableOpacity, ActivityIndicator,
 } from 'react-native';
 
-import Colors from '../../contants/Colors';
-import Strings from '../../contants/Strings';
+import Colors from 'EGColors';
+import Strings from 'EGStrings';
 
 export default ({
   textStyle, style, screen, title, onPress, textButton, loading = false,

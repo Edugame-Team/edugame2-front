@@ -1,16 +1,16 @@
-import React, {
-  useState, useEffect,
-} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Dimensions } from 'react-native';
-import AppContext from './src/components/AppContext';
+import AppContext from 'EGComponents/AppContext';
 import Router from './src/naviguation/Router';
 
 export default function App() {
   //= ==========================================
   // window size handler
   //= ==========================================
-  const [isLargeScreen, setIsLargeScreen] = useState(Dimensions.get('window').width > 780);
+  const [isLargeScreen, setIsLargeScreen] = useState(
+    Dimensions.get('window').width > 780,
+  );
 
   const onChange = ({ window }) => {
     setIsLargeScreen(window.width > 780);
