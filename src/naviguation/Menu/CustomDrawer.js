@@ -6,7 +6,7 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
-import Alert from '../../components/AlertOk';
+import { AlertOkCancel } from '../../components/Alert';
 
 import Strings from '../../contants/Strings';
 
@@ -25,7 +25,7 @@ const CustomDrawerContent = (props) => {
         icon={({ color, size }) => (
           <Icon name="exit-to-app" color={color} size={size} />
         )}
-        onPress={() => Alert(
+        onPress={() => AlertOkCancel(
           Strings.alert.disconnect.title,
           Strings.alert.disconnect.question,
           popupPressed,

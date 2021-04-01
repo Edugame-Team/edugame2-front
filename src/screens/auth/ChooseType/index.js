@@ -1,25 +1,46 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Strings from '../../../contants/Strings';
+import AppContext from '../../../components/AppContext';
 
 import Type from './Type';
 
+const getTypeStyle = (isLargeScreen, size) => ({
+  width: isLargeScreen ? `${100 / size}%` : '100%',
+  height: !isLargeScreen ? `${100 / size}%` : '100%',
+});
+
+const getContainerStyle = (isLargeScreen) => ({
+  flexDirection: isLargeScreen ? 'row' : 'column',
+});
+
 const ChooseType = ({ navigation }) => {
+  const myContext = useContext(AppContext);
+
   const listType = Strings.screens.choose_type;
+  const listTypeKeys = Object.keys(listType);
 
-  const el = Object.keys(listType).map((key) => (
-    <Type key={listType[key].id} navigation={navigation} user={listType[key]} />
-  ));
-
-  return (<View style={styles.itemContainer}>{el}</View>);
+  return (
+    <View
+      style={[styles.itemContainer, getContainerStyle(myContext.isLargeScreen)]}
+    >
+      {listTypeKeys.map((key) => (
+        <Type
+          key={listType[key].id}
+          navigation={navigation}
+          user={listType[key]}
+          typeStyle={[getTypeStyle(myContext.isLargeScreen, listTypeKeys.length)]}
+        />
+      ))}
+    </View>
+  );
 };
 export default ChooseType;
 
 const styles = StyleSheet.create({
   itemContainer: {
     flex: 1,
-    width: '100%',
-    flexDirection: 'row',
     justifyContent: 'center',
+    height: '100%',
   },
 });

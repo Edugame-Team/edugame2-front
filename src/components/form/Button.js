@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet, Text, TouchableOpacity, ActivityIndicator,
+} from 'react-native';
 
 import Colors from '../../contants/Colors';
 import Strings from '../../contants/Strings';
 
 export default ({
-  textStyle, style, screen, title, onPress, textButton,
+  textStyle, style, screen, title, onPress, textButton, loading = false,
 }) => {
   const styles = StyleSheet.create({
     button: {
@@ -36,7 +38,13 @@ export default ({
       onPress={() => onPress()}
       style={[textButton ? styles.textButton : styles.button, style]}
     >
-      <Text style={[styles.text, styles.textParam]}>{Strings.screens[screen].button[title]}</Text>
+      { loading
+        ? <ActivityIndicator color={Colors.mainTextcolor} size="large" />
+        : (
+          <Text style={[styles.text, styles.textParam]}>
+            {Strings.screens[screen].button[title]}
+          </Text>
+        )}
     </TouchableOpacity>
   );
 };

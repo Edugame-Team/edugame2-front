@@ -1,9 +1,12 @@
 /* eslint-disable no-console */
+import { AlertOk } from './Alert';
 
-// const host = "192.20.10.2:3000";
-const host = 'http://192.168.43.66:3000/api';
+const host = 'http://192.20.10.2:3000';
+// const host = 'http://google.com/api';
 
 const request = (type, url, body, setLoading) => {
+  if (setLoading !== undefined) setLoading(true);
+
   const options = {
     method: type,
     headers: {
@@ -19,7 +22,7 @@ const request = (type, url, body, setLoading) => {
     .then((response) => response.json())
     .then((json) => json)
     .catch((error) => {
-      console.error(error);
+      AlertOk(error);
     })
     .finally(() => {
       if (setLoading !== undefined) setLoading(false);

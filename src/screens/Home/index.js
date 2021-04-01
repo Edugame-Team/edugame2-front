@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import {
+  View, StyleSheet, ScrollView,
+} from 'react-native';
 import User from './User';
+import ItemList from '../../components/ItemList';
 
 const Home = () => {
   const data = [
@@ -9,56 +12,56 @@ const Home = () => {
       name: 'toto',
       level: 9,
       purcentage: 40,
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+      avatar: 'https://cdn.onlinewebfonts.com/svg/img_568656.png',
     },
     {
       id: 2,
       name: 'toto',
       level: 9,
       purcentage: 40,
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+      avatar: 'https://cdn.onlinewebfonts.com/svg/img_568656.png',
     },
     {
       id: 3,
       name: 'toto',
       level: 9,
       purcentage: 40,
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+      avatar: 'https://cdn.onlinewebfonts.com/svg/img_568656.png',
     },
     {
       id: 4,
       name: 'toto',
       level: 9,
       purcentage: 40,
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+      avatar: 'https://cdn.onlinewebfonts.com/svg/img_568656.png',
     },
     {
       id: 5,
       name: 'toto',
       level: 9,
       purcentage: 80,
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+      avatar: 'https://cdn.onlinewebfonts.com/svg/img_568656.png',
     },
     {
       id: 6,
       name: 'toto',
       level: 9,
       purcentage: 20,
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+      avatar: 'https://cdn.onlinewebfonts.com/svg/img_568656.png',
     },
     {
       id: 7,
       name: 'toto',
       level: 9,
       purcentage: 20,
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+      avatar: 'https://cdn.onlinewebfonts.com/svg/img_568656.png',
     },
     {
       id: 8,
       name: 'toto',
       level: 9,
       purcentage: 20,
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+      avatar: 'https://cdn.onlinewebfonts.com/svg/img_568656.png',
     },
     {
       id: 9,
@@ -70,25 +73,28 @@ const Home = () => {
   ];
 
   return (
-    <ScrollView style={styles.scroll}>
-      <View style={styles.containerTop}>
-        <View style={styles.container}>
-          {data.map((user) => (
-            <User user={user} key={user.id} />
-          ))}
-        </View>
+    <ScrollView>
+      <View style={styles.container}>
+        {data.map((user) => (
+          <User style={styles.user} user={user} />
+        ))}
       </View>
     </ScrollView>
   );
 };
 
-const styles = StyleSheet.create({
-  scroll: {
-    height: '100%',
+let styles = StyleSheet.create({
+  user: {
+    minWidth: 150,
+    maxWidth: 150,
+    textAlign: 'justify',
   },
   container: {
-    flexDirection: 'row',
+    display: 'flex',
     flexWrap: 'wrap',
+    // justifyContent: 'start',
+    flexDirection: 'row',
+    paddingBottom: 10,
   },
 });
 

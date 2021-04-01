@@ -7,7 +7,7 @@ import AppContext from '../../../components/AppContext';
 import Button from '../../../components/form/Button';
 import Input from '../../../components/form/Input';
 
-// import { requestPost } from '../../../components/Request';
+import { requestPost } from '../../../components/Request';
 
 import Strings from '../../../contants/Strings';
 import Colors from '../../../contants/Colors';
@@ -16,6 +16,7 @@ const Login = ({ navigation }) => {
   const myContext = useContext(AppContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const loginRequest = () => {
     myContext.setUser({
@@ -23,17 +24,18 @@ const Login = ({ navigation }) => {
       token: 'coucou',
     });
     navigation.navigate(Strings.navigation.menu.title);
-    // requestPost('token/getToken', { pseudo: email, password }).then(
-    //  (res) => {
-    //    if (res !== undefined && res.success) {
-    //      myContext.setUser({
-    //        logged: true,
-    //        token: res.token,
-    //      });
-    //      navigation.navigate(Strings.navigation.menu.title);
-    //    }
-    //  },
-    // );
+
+    requestPost('token/getToken', { pseudo: email, password }, setLoading).then(
+      (res) => {
+        if (res !== undefined && res.success) {
+          myContext.setUser({
+            logged: true,
+            token: res.token,
+          });
+          navigation.navigate(Strings.navigation.menu.title);
+        }
+      },
+    );
   };
 
   return (
@@ -62,6 +64,7 @@ const Login = ({ navigation }) => {
           screen="login"
           title="login"
           onPress={() => loginRequest()}
+          loading={loading}
         />
         <SafeAreaView style={styles.textButtonContainer}>
           <Text style={styles.textButton}>

@@ -4,21 +4,13 @@ import {
 } from 'react-native';
 import Colors from '../../../contants/Colors';
 
-/* eslint-disable global-require */
-const backgroundImages = [
-  require('../../../../assets/img/type/eleve.jpg'),
-  require('../../../../assets/img/type/parent.jpg'),
-  require('../../../../assets/img/type/prof.jpg'),
-];
-/* eslint-enable global-require */
-
-const Type = ({ user, navigation }) => (
+const Type = ({ user, navigation, typeStyle }) => (
   <TouchableOpacity
-    style={styles.item}
     activeOpacity={0.6}
+    style={[typeStyle]}
     onPress={() => navigation.navigate('Login')}
   >
-    <ImageBackground source={backgroundImages[user.id - 1]} style={styles.image}>
+    <ImageBackground source={user.img} style={styles.image}>
       <View style={styles.filter}>
         <Text style={styles.text}>{user.choose_type}</Text>
       </View>
@@ -28,17 +20,9 @@ const Type = ({ user, navigation }) => (
 export default Type;
 
 const styles = StyleSheet.create({
-  item: {
-    flexDirection: 'column',
-    width: '33%',
-    height: '100%',
-  },
   image: {
     width: '100%',
     height: '100%',
-    flex: 1,
-    alignItems: 'stretch',
-    position: 'absolute',
   },
   text: {
     textAlign: 'center',

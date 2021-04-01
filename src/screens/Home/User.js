@@ -5,29 +5,28 @@ import {
 import { Card, Image } from 'react-native-elements';
 import TextString from '../../components/form/TextString';
 
-const User = ({ user }) => (
-  <Card style={styles.card}>
-    <View style={styles.levelBar}>
-      <View
-        style={[styles.levelBarPurcentage, { width: `${user.purcentage}%` }]}
-      />
-    </View>
-
+const User = ({ user, style }) => (
+  <View style={[styles.card, style]}>
     <Image
       style={styles.image}
       resizeMode="cover"
       source={{ uri: user.avatar }}
     />
 
+    <View style={styles.levelBar}>
+      <View
+        style={[styles.levelBarPurcentage, { width: `${user.purcentage}%` }]}
+      />
+    </View>
+
     <View style={styles.cardText}>
       <Text style={styles.name}>{user.name}</Text>
       <TextString style={styles.levelText} screen="home" text="level" />
       <Text>
-        {' '}
         {user.level}
       </Text>
     </View>
-  </Card>
+  </View>
 );
 
 let styles = StyleSheet.create({
@@ -43,16 +42,23 @@ let styles = StyleSheet.create({
     height: 10,
     borderColor: 'gray',
     borderWidth: 2,
-    marginBottom: 5,
+    marginTop: 8,
   },
   cardText: {
     flexDirection: 'row',
-    paddingTop: 5,
+    paddingTop: 2,
   },
   levelText: {
     marginLeft: 'auto',
   },
-  card: {},
+  card: {
+    backgroundColor: 'white',
+    flexShrink: 1,
+    margin: 10,
+    padding: 10,
+    marginBottom: 0,
+    borderColor: 'black',
+  },
   image: {
     height: 115,
     width: 115,

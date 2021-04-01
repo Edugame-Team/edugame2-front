@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 export default {
   navigation: {
     menu: {
@@ -26,17 +27,17 @@ export default {
       student: {
         id: 1,
         choose_type: 'Élève',
-        img: 'eleve.jpg',
+        img: require('../../../assets/img/type/eleve.jpg'),
       },
       parent: {
         id: 2,
         choose_type: 'Parent',
-        img: 'parent.jpg',
+        img: require('../../../assets/img/type/parent.jpg'),
       },
       professor: {
         id: 3,
         choose_type: 'Professeur',
-        img: 'prof.jpg',
+        img: require('../../../assets/img/type/prof.jpg'),
       },
     },
     login: {
@@ -70,3 +71,4 @@ export default {
     },
   },
 };
+/* eslint-enable global-require */
