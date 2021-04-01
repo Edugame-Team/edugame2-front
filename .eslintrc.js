@@ -12,7 +12,7 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-native'],
+  plugins: ['react', 'react-native', 'module-resolver'],
   rules: {
     'module-resolver/use-alias': 2,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
