@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import { Platform, Alert } from 'react-native';
-import Strings from '../contants/Strings';
+import Strings from 'EGStrings';
 
 export const AlertOkCancel = (title, question, callback) => {
   const phone = () => {

@@ -3,10 +3,10 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { DrawerActions } from '@react-navigation/native';
-import AppContext from '../../components/AppContext';
+import AppContext from 'EGComponents/AppContext';
 
-import Strings from '../../contants/Strings';
-import Colors from '../../contants/Colors';
+import Strings from 'EGStrings';
+import Colors from 'EGColors';
 
 import Home from '../../screens/Home';
 import Path from '../../screens/Path';

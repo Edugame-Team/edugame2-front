@@ -3,14 +3,14 @@ import {
   Text, SafeAreaView, View, StyleSheet,
 } from 'react-native';
 
-import AppContext from '../../../components/AppContext';
-import Button from '../../../components/form/Button';
-import Input from '../../../components/form/Input';
+import AppContext from 'EGComponents/AppContext';
+import Button from 'EGComponents/form/Button';
+import Input from 'EGComponents/form/Input';
 
-import { requestPost } from '../../../components/Request';
+import { requestPost } from 'EGComponents/Request';
 
-import Strings from '../../../contants/Strings';
-import Colors from '../../../contants/Colors';
+import Strings from 'EGStrings';
+import Colors from 'EGColors';
 
 const Login = ({ navigation }) => {
   const myContext = useContext(AppContext);

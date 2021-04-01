@@ -6,9 +6,9 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
-import { AlertOkCancel } from '../../components/Alert';
+import { AlertOkCancel } from 'EGComponents/Alert';
 
-import Strings from '../../contants/Strings';
+import Strings from 'EGStrings';
 
 const CustomDrawerContent = (props) => {
   const popupPressed = () => {

@@ -2,8 +2,8 @@ import * as React from 'react';
 import {
   View, StyleSheet, ScrollView,
 } from 'react-native';
+import ItemList from 'EGComponents/ItemList';
 import User from './User';
-import ItemList from '../../components/ItemList';
 
 const Home = () => {
   const data = [

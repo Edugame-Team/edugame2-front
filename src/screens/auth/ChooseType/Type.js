@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   StyleSheet, Text, TouchableOpacity, ImageBackground, View,
 } from 'react-native';
-import Colors from '../../../contants/Colors';
+import Colors from 'EGColors';
 
 const Type = ({ user, navigation, typeStyle }) => (
   <TouchableOpacity

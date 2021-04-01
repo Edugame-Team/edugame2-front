@@ -21,6 +21,7 @@
     "expo-cli": "^4.3.2",
     "expo-splash-screen": "^0.8.1",
     "expo-updates": "~0.4.2",
+    "husky": "^6.0.0",
     "react": "~17.0.2",
     "react-dom": "~17.0.2",
     "react-native": "~0.64.0",
@@ -49,7 +50,6 @@
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-react-native": "^3.10.0",
-    "husky": "^6.0.0",
     "jest": "~26.6.3",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
@@ -60,7 +60,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn prettier &> /dev/null; yarn lint"
+      "pre-commit": "yarn lint"
     }
   },
   "private": true

@@ -3,8 +3,8 @@ import React, {
 } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Grid from 'react-native-grid-component';
+import ItemList from 'EGComponents/ItemList';
 import Item from './Item';
-import ItemList from '../../components/ItemList';
 
 const Library = () => {
   const data = [

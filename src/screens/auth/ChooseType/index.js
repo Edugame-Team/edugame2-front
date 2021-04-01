@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
-import Strings from '../../../contants/Strings';
-import AppContext from '../../../components/AppContext';
+import Strings from 'EGStrings';
+import AppContext from 'EGComponents/AppContext';
 
 import Type from './Type';
 
