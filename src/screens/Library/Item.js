@@ -1,8 +1,10 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Card, Image } from 'react-native-elements';
+import { Image } from 'react-native-elements';
+import Toast from 'react-native-toast-message';
 
 const Item = ({ item, style }) => (
+
   <View style={style}>
     <Image
       style={styles.image}

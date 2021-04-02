@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import { Dimensions } from 'react-native';
+import { Dimensions, Text } from 'react-native';
 import AppContext from 'EGComponents/AppContext';
+import Toast from 'react-native-toast-message';
 import Router from './src/naviguation/Router';
 
 export default function App() {
@@ -44,6 +45,7 @@ export default function App() {
   return (
     <AppContext.Provider value={settings}>
       <Router />
+      <Toast ref={(ref) => Toast.setRef(ref)} />
     </AppContext.Provider>
   );
 }
