@@ -65,6 +65,9 @@ const Menu = ({ navigation }) => {
         },
       }}
       initialRouteName={screenName.home}
+      sceneContainerStyle={{
+        backgroundColor: Colors.mainBackground,
+      }}
       openByDefault
       drawerType={myContext.isLargeScreen ? 'permanent' : 'back'}
       drawerContent={(props) => (

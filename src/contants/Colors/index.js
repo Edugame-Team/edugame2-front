@@ -1,4 +1,5 @@
 export default {
+  mainBackground: '#F1F7F7',
   mainColor: '#53DECE',
   mainTextcolor: '#4D5589',
   black: '#000',

@@ -18,12 +18,12 @@
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
     "expo": "~40.0.1",
-    "expo-cli": "^4.3.2",
+    "expo-cli": "^4.3.4",
     "expo-splash-screen": "^0.8.1",
     "expo-updates": "~0.4.2",
     "husky": "^6.0.0",
-    "react": "~17.0.2",
-    "react-dom": "~17.0.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
     "react-native-elements": "^3.3.2",
     "react-native-gesture-handler": "^1.8.3",
@@ -31,16 +31,18 @@
     "react-native-reanimated": "^1.13.0",
     "react-native-safe-area-context": "3.1.9",
     "react-native-screens": "^2.15.2",
-    "react-native-toast-message": "^1.4.9",
     "react-native-unimodules": "~0.12.0",
     "react-native-web": "~0.15.5",
-    "rn-double-click": "^1.0.3"
+    "rn-double-click": "^1.0.3",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@babel/core": "~7.13.14",
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "~26.6.3",
     "babel-plugin-module-resolver": "^4.1.0",
-    "eslint": "^7.23.0",
+    "eslint": "7.14.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",
     "eslint-import-resolver-babel-module": "^5.2.0",
@@ -51,10 +53,11 @@
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-react-native": "^3.10.0",
-    "jest": "~26.6.3",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.64.0",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
-    "react-test-renderer": "~17.0.2"
+    "react-test-renderer": "17.0.1"
   },
   "jest": {
     "preset": "react-native"

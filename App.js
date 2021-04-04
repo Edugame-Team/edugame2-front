@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import { Dimensions, Text } from 'react-native';
+import { Dimensions } from 'react-native';
 import AppContext from 'EGComponents/AppContext';
-import Toast from 'react-native-toast-message';
+
+import Toast from 'EGComponents/Toast';
 import Router from './src/naviguation/Router';
 
 export default function App() {

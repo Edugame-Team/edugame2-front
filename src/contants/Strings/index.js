@@ -71,12 +71,11 @@ export default {
     },
   },
   toast: {
-    sucess: {
-      connection: 'Connecté'
-    },
-    error: {
-      connection: 'Erreur lors de la connexion'
+    connection: {
+      success: 'Connecté',
+      error: 'Erreur lors de la connexion'
     }
+
   }
 };
 /* eslint-enable global-require */

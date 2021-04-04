@@ -10,6 +10,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Strings from 'EGStrings';
 import AppContext from 'EGComponents/AppContext';
+import Colors from 'EGColors';
 import Menu from './Menu';
 import Login from '../screens/auth/Login';
 import ChooseType from '../screens/auth/ChooseType';
@@ -27,7 +28,7 @@ export default function App() {
           gestureEnabled: true,
           headerStyle: {
           },
-          cardStyle: { backgroundColor: '#F1F7F7' },
+          cardStyle: { backgroundColor: Colors.mainBackground },
         }}
         initialRouteName={
           myContext.user.logged
