@@ -36,6 +36,7 @@ export default ({
   return (
     <TouchableOpacity
       onPress={() => onPress()}
+      disabled={loading}
       style={[textButton ? styles.textButton : styles.button, style]}
     >
       { loading

@@ -26,8 +26,8 @@ class Toast extends React.Component {
 
     return (
       <View style={styles.container}>
-        {listToast.map((toast) => (
-          <ToastBody toast={toast} />
+        {listToast.map((toast, index) => (
+          <ToastBody key={index.toString()} toast={toast} />
         ))}
       </View>
     );
@@ -43,11 +43,11 @@ Toast.show = (props) => {
   setListToast((list) => list.push(toast));
 
   setTimeout(() => {
+    toast.onHide();
     setListToast((list) => {
       const index = list.findIndex((elem) => elem === toast);
       delete list[index];
     });
-    toast.onHide();
   }, toast.timeoutHide);
 };
 export default Toast;

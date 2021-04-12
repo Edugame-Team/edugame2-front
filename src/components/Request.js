@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
-import { AlertOk } from './Alert';
+import Toast from 'EGComponents/Toast/';
 
 const host = 'http://192.20.10.2:3000';
 // const host = 'http://google.com/api';
 
-const request = (type, url, body, setLoading) => {
+const request = (
+  type, url, body, setLoading, toastText
+) => {
   if (setLoading !== undefined) setLoading(true);
 
   const options = {
@@ -22,13 +24,24 @@ const request = (type, url, body, setLoading) => {
     .then((response) => response.json())
     .then((json) => json)
     .catch((error) => {
-      AlertOk(error);
+      console.log(error);
+      if (toastText !== undefined) {
+        Toast.show({
+          text: toastText,
+          type: 'error',
+          timeoutHide: 7000
+        });
+      }
     })
     .finally(() => {
       if (setLoading !== undefined) setLoading(false);
     });
 };
 
-export const requestPost = (url, body, setLoading) => request('POST', url, body, setLoading);
+export const requestPost = ({
+  url, body, setLoading = () => {}, toastText = undefined
+}) => request('POST', url, body, setLoading, toastText);
 
-export const requestGet = (url, body, setLoading) => request('GET', url, body, setLoading);
+export const requestGet = ({
+  url, body, setLoading = () => {}, toastText = undefined
+}) => request('GET', url, body, setLoading, toastText);

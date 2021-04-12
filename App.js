@@ -4,6 +4,7 @@ import { Dimensions } from 'react-native';
 import AppContext from 'EGComponents/AppContext';
 
 import Toast from 'EGComponents/Toast';
+import GlobalVars from 'EGVariables';
 import Router from './src/naviguation/Router';
 
 export default function App() {
@@ -11,11 +12,17 @@ export default function App() {
   // window size handler
   //= ==========================================
   const [isLargeScreen, setIsLargeScreen] = useState(
-    Dimensions.get('window').width > 780,
+    Dimensions.get('window').width > GlobalVars.largeScreenLimit,
+  );
+
+  const [screenSize, setScreenSize] = useState(
+    Dimensions.get('window').width
   );
 
   const onChange = ({ window }) => {
-    setIsLargeScreen(window.width > 780);
+    const hasChanged = window.width > GlobalVars.largeScreenLimit;
+    if (hasChanged !== isLargeScreen) setIsLargeScreen(hasChanged);
+    setScreenSize(window.width);
   };
 
   useEffect(() => {
@@ -37,7 +44,7 @@ export default function App() {
     user,
     setUser,
     isLargeScreen,
-    setIsLargeScreen,
+    screenSize
   };
 
   //= ==========================================

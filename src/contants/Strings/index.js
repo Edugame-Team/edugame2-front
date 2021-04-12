@@ -72,7 +72,7 @@ export default {
   },
   toast: {
     connection: {
-      success: 'Connecté',
+      success: 'Connecté jfdjjjjjj jjjjjjjjj jjjjjjjjj jjjjjjjjjjjjjjjjjjcwi uweiuh fiuuqwebfco wbeoif0',
       error: 'Erreur lors de la connexion'
     }
 

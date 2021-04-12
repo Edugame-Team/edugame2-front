@@ -9,6 +9,7 @@ module.exports = function (api) {
           EGComponents: './src/components/',
           EGColors: './src/contants/Colors',
           EGStrings: './src/contants/Strings',
+          EGVariables: './src/contants/Variables',
           EGScreens: './src/components/',
         },
       }],

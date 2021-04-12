@@ -1,44 +1,19 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, ScrollView } from 'react-native';
 
-const ItemList = ({ children, data }) => {
-  const renderItem = (users) => (
-    <View style={styles.container}>
-      {users.map((user) => (
-        <User style={styles.user} user={user} />
-      ))}
-    </View>
-  );
-
-  const newData = (toto) => {
-    let tmp = [];
-    const arr = [];
-
-    toto.forEach((val, index) => {
-      if (index % 3 === 0 && index !== 0) {
-        arr.push(tmp);
-        tmp = [];
-      }
-      tmp.push(val);
-    });
-    arr.push(tmp);
-    return arr;
-  };
-
-  return (
+const ItemList = ({ data, renderItem }) => (
+  <ScrollView>
     <FlatList
-      data={newData(data)}
-      renderItem={(item) => renderItem(item)}
+      columnWrapperStyle={{
+        justifyContent: 'center', flexWrap: 'wrap', flex: 1, marginBottom: 10
+      }}
+      data={data}
+      horizontal={false}
+      renderItem={({ item }) => renderItem(item)}
+      numColumns={10000}
+      keyExtractor={({ index }) => index}
     />
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    width: '100%',
-    marginBottom: 10,
-  },
-});
+  </ScrollView>
+);
 
 export default ItemList;

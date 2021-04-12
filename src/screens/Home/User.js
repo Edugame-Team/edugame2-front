@@ -53,7 +53,6 @@ let styles = StyleSheet.create({
   },
   card: {
     backgroundColor: 'white',
-    flexShrink: 1,
     margin: 10,
     padding: 10,
     marginBottom: 0,

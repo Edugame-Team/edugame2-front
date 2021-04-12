@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
@@ -27,21 +27,26 @@ const Menu = ({ navigation }) => {
   //= ==========================================
   // Burguer menu Icon
   //= ==========================================
-  if (!myContext.isLargeScreen) {
-    navigation.setOptions({
-      headerLeft: () => (
-        <TouchableOpacity
-          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-        >
-          <Icon name="menu" size={25} style={styles.headerIcon} />
-        </TouchableOpacity>
-      ),
-    });
-  } else {
-    navigation.setOptions({
-      headerLeft: () => {},
-    });
-  }
+  useEffect(() => {
+    if (!myContext.isLargeScreen) {
+      navigation.setOptions({
+        headerStyle: {
+          backgroundColor: 'white',
+        },
+        headerLeft: () => (
+          <TouchableOpacity
+            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+          >
+            <Icon name="menu" size={25} style={styles.headerIcon} />
+          </TouchableOpacity>
+        ),
+      });
+    } else {
+      navigation.setOptions({
+        headerLeft: () => {},
+      });
+    }
+  }, [myContext]);
 
   //= ==========================================
   // Refactoring functions

@@ -1,10 +1,8 @@
-import React, {
-  useEffect,
-} from 'react';
-import { StyleSheet, View } from 'react-native';
-import Grid from 'react-native-grid-component';
+import * as React from 'react';
+
+import { StyleSheet } from 'react-native';
 import ItemList from 'EGComponents/ItemList';
-import Item from './Item';
+import Cours from './Cours';
 
 const Library = () => {
   const data = [
@@ -20,34 +18,22 @@ const Library = () => {
     },
     {
       text: '',
-      img: 'https://cdn-az.allevents.in/banners/135c2b7fc8e9f0c2fc83404da4e94472',
+      img: 'https://cdnWarning: Failed prop type: Invalid prop `style` of type `number` supplied to `Grid`,-az.allevents.in/banners/135c2b7fc8e9f0c2fc83404da4e94472',
       color: '',
     },
   ];
 
-  useEffect(() => {
-    console.log('couocu');
-  }, []);
-
   return (
-    <Grid
-      style={styles.list}
-      renderItem={(item) => (
-        <Item style={[styles.item, { width: `${100 / 2}%` }]} item={item} />
-      )}
+    <ItemList
       data={data}
-      numColumns={2}
-      keyExtractor={(item, n) => n.toString()}
+      renderItem={(item) => <Cours style={styles.item} item={item} />}
     />
   );
 };
 const styles = StyleSheet.create({
   item: {
-    width: '100%',
+    width: 400,
     padding: 10,
-  },
-  list: {
-    width: '100%',
   },
 });
 

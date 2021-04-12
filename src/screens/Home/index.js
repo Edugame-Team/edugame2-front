@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  View, StyleSheet, ScrollView,
+  FlatList, StyleSheet, ScrollView,
 } from 'react-native';
 import ItemList from 'EGComponents/ItemList';
 import User from './User';
@@ -73,29 +73,11 @@ const Home = () => {
   ];
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        {data.map((user) => (
-          <User style={styles.user} user={user} />
-        ))}
-      </View>
-    </ScrollView>
+    <ItemList
+      data={data}
+      renderItem={(item) => <User user={item} />}
+    />
   );
 };
-
-let styles = StyleSheet.create({
-  user: {
-    minWidth: 150,
-    maxWidth: 150,
-    textAlign: 'justify',
-  },
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    // justifyContent: 'start',
-    flexDirection: 'row',
-    paddingBottom: 10,
-  },
-});
 
 export default Home;

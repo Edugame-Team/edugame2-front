@@ -25,7 +25,12 @@ const Login = ({ navigation }) => {
     });
     navigation.navigate(Strings.navigation.menu.title);
 
-    requestPost('token/getToken', { pseudo: email, password }, setLoading).then(
+    requestPost({
+      url: 'token/getToken',
+      body: { pseudo: email, password },
+      toastText: 'connection',
+      setLoading,
+    }).then(
       (res) => {
         if (res !== undefined && res.success) {
           myContext.setUser({
